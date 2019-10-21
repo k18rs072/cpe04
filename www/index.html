@@ -170,16 +170,15 @@ var period=0;
     var img = new Image();
     img.src = "ksuisbg.gif";
     img.onload =function(){ctx.drawImage(img,0,0,300,300);};
-        var audio =new audio();
-        audio.src= "pin.wav";
+        var audio = new Audio();
+        audio.src = "pin.wav";
         audio.play();
     }
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
-        active =true;
-        startTime=new Data();
-        
+        active = true;
+        startTime = new Date(); 
     }
 
     // ButtonBがクリックされた時の処理
@@ -206,9 +205,11 @@ var period=0;
  $("#time").html("経過時間： " + time);
  $("#remain").html("残り時間： " + rest);
  analog(rest);
-
- }
-        
+}
+  if(rest<=0){
+    active=false;
+    alarm();
+  }
     } 
 
   </script>
